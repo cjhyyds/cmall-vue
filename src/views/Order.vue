@@ -65,7 +65,7 @@
                 <div class="order-list-product">
                   <div class="pro-img">
                     <router-link
-                      :to="{ path: '/goods/details', query: {productID:item.product_id} }"
+                      :to="{ path: '/goods/newdetails', query: {productID:item.project_id} }"
                     >
                       <img :src="item.img_path" />
                     </router-link>
@@ -74,7 +74,7 @@
                     <p style="margin-bottom:7px">
                       <router-link
                         class="info-href"
-                        :to="{ path: '/goods/details', query: {productID:item.product_id} }"
+                        :to="{ path: '/goods/newdetails', query: {productID:item.project_id} }"
                       >{{item.name}}</router-link>
                     </p>
                     <!-- <span>{{item.discount_price}}</span>&nbsp;×

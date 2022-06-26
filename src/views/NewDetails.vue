@@ -14,14 +14,13 @@
       <div class="details-block">
         <div>
           <img style="height: 560px;width: 560px" :src="productDetails.img_path" />
-          <!-- <img style="height: 560px;" src="https://p3.ssl.qhimgs1.com/sdr/400__/t01afc62eeaeda03719.jpg"/> -->
         </div>
       </div>
       <!-- 左侧商品轮播图END -->
 
       <!-- 右侧内容区 -->
       <div class="details-content">
-        <el-tag type="success">还剩10{{productDetails.remaining_time}}天结束</el-tag>
+        <el-tag type="success">还剩{{productDetails.remaining_time}}天结束</el-tag>
         <h1 class="name" style="margin-left: 30px;font-size: 30px">{{ productDetails.name }}</h1>
         <li class="view">
           <i class="el-icon-view"></i>
@@ -31,8 +30,8 @@
         <p style="margin-top: 20px;">详情介绍：{{ productDetails.info }}</p>
         </div>
         <div class="d-flex align-items-center mb-4" style="padding-top: 20px">
-          <el-avatar :size="30" :src="productDetails.name"></el-avatar>
-          <span class="ml-2" style="margin-left: 10px">发起人：{{productDetails.name}}</span>
+          <el-avatar :size="30" src="https://hjm-cmall.oss-cn-hangzhou.aliyuncs.com/The_Mathematicians.jpg"></el-avatar>
+          <span class="ml-2" style="margin-left: 10px">发起人：{{productDetails.id}}</span>
         </div>
 
         <el-divider></el-divider>
@@ -43,7 +42,7 @@
             <p class="font-weight-bold" style="margin-left:30px;font-size:36px;color:red">目标金额 ¥{{productDetails.target_amount}}</p>
           </div>
 
-          <p style="margin-top: 50px;font-size: 20px">众筹进度：{{productDetails.raiser_amount*100/productDetails.target_amount}}%</p>
+          <p style="margin-top: 50px;font-size: 20px">众筹进度：{{towNumber(productDetails.raiser_amount*100/productDetails.target_amount)}}%</p>
           <el-progress class="mb-3" style="margin-top: 10px" :percentage="productDetails.raiser_amount*100/productDetails.target_amount" color="#1D8F1D" :stroke-width="10" :show-text="false"></el-progress>
         </div>
 
@@ -77,7 +76,8 @@ export default {
       imgs: '', //商品概述图片
       infoImgs: '',
       paramImgs: '',
-      select: 0
+      select: 0,
+      percent:0,
     }
   },
   // 通过路由获取商品id
@@ -95,6 +95,10 @@ export default {
   },
   methods: {
     ...mapActions(['unshiftShoppingCart', 'addShoppingCartNum']),
+    // 转化成小数
+    towNumber(val) {
+    return val.toFixed(2)
+    },
     // 获取商品详细信息
     load() {
       productsAPI.showProduct(this.productID).then(res => {
@@ -145,12 +149,12 @@ export default {
               case 200:
                 //新加入购物车成功
                 this.unshiftShoppingCart(res.data)
-                this.notifySucceed('添加购物车成功')
+                this.notifySucceed('添加项目预投成功')
                 break
               case 201:
                 // 该商品已经在购物车，数量+1
                 this.addShoppingCartNum(this.productID)
-                this.notifySucceed('该商品已在购物车，数量+1')
+                this.notifySucceed('该项目已在项目预投！')
                 break
               case 202:
                 // 商品数量达到限购数量

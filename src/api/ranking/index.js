@@ -9,10 +9,10 @@ import axios from 'axios'
 
 // 读取热门家电
 const listElecRanking = () =>
-  axios.get('http://localhost:3000/api/v1/elec-rankings').then(res => res.data)
+  axios.get('http://10.1.162.174:3000/api/v1/elec-rankings').then(res => res.data)
 
 // 读取热门配件
 const listAcceRanking = () =>
-  axios.get('http://localhost:3000/api/v1/acce-rankings').then(res => res.data)
+  axios.get('http://10.1.162.174:3000/api/v1/acce-rankings').then(res => res.data)
 
 export { listElecRanking, listAcceRanking }

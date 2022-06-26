@@ -122,7 +122,7 @@ const routes = [
     name: 'UserDetails',
     component: () => import('../views/UserDetails.vue'),
     meta: {
-      // requireAuth: true // 需要验证登录状态
+      requireAuth: true // 需要验证登录状态
     }
   },
   {

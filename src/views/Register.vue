@@ -10,9 +10,13 @@
   <div class="register">
     <div>
       <el-card class="box-card" shadow="hover">
-        <div slot="header" class="clearfix">
-          <span>注册</span>
+        <router-link to="/">
+          <img src="../assets/imgs/clogo.png" style=" width: 100%; height:100%;" />
+        </router-link>
+        <div class="clearfix">
+          <span>注册一个众筹网账号</span>
         </div>
+        <br>
         <div class="item">
           <el-form :model="form" status-icon :rules="rules" ref="form">
             <el-form-item prop="nickname">

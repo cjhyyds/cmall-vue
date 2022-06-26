@@ -56,7 +56,7 @@
               <span>{{form.amount}}元</span>
             </div>
             <div class="pay-btn">
-              <el-button type="primary" @click="pay('form')">立即支付</el-button>
+              <el-button type="primary" @click="falsepay">立即支付</el-button>
             </div>
           </div>
         </div>
@@ -78,6 +78,8 @@ export default {
         order_num: '',
         amount: '',
         pay_type: 'alipay'
+      },
+      form1:{
       },
       rules: {
         amount: [
@@ -143,6 +145,31 @@ export default {
             this.notifyError('获取收款码失败', err)
           })
       })
+    },
+    //伪支付功能
+    falsepay() {
+        //将order对象里的值给予from表单
+        this.form1.id =this.order.id
+        this.form1.project_id = this.order.project_id
+        this.form1.num = this.order.num
+        paymentAPI
+          .falsePayment(this.form1)
+          .then(res => {
+            if (res.status === 200) {
+              this.notifySucceed("支付成功")
+              this.$router.push({ path: '/order'})
+            } else if (res.status === 20001) {
+              //token过期，需要重新登录
+              this.loginExpired(res.msg)
+            } else {
+              this.notifyError('支付失败')
+              this.$router.push({ path: '/order'})
+            }
+          })
+          .catch(err => {
+            this.notifyError('支付失败',err)
+            this.$router.push({ path: '/order'})
+          })
     }
   },
   created() {},

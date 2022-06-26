@@ -8,7 +8,6 @@
 
 import axios from 'axios'
 
-let ip = 'http://10.1.162.174:3000'
 //注册
 const postUser = form =>
   axios.post('http://10.1.162.174:3000/api/v1/user/register', form).then(res => res.data)
@@ -22,11 +21,11 @@ const updateUser = form => axios.put('http://10.1.162.174:3000/api/v1/user', for
 
 //发送邮件
 const sendEmail = form =>
-  axios.post('http://localhost:3000/api/v1/user/sending-email', form).then(res => res.data)
+  axios.post('http://10.1.162.174:3000/api/v1/user/sending-email', form).then(res => res.data)
 
 //绑定或解绑邮箱
 const vaildEmail = val =>
-  axios.post('http://localhost:3000/api/v1/user/vaild-email', { token: val }).then(res => res.data)
+  axios.post('http://10.1.162.174:3000/api/v1/user/vaild-email', { token: val }).then(res => res.data)
 
 //QQ初始化
 const qqInit = () => axios.get('http://localhost:3000/api/v1/qq/login').then(res => res.data)

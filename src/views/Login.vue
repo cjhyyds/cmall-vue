@@ -11,7 +11,7 @@
     <div>
       <el-card class="box-card" shadow="hover">
         <router-link to="/">
-          <img src="../assets/imgs/clogo.png" alt />
+          <img src="../assets/imgs/clogo.png" style=" width: 100%; height:100%;" />
         </router-link>
         <div class="clearfix">
           <span>使用解筹网账号 登录网站</span>

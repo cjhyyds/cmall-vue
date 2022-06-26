@@ -33,6 +33,7 @@ export default {
           if (res.status === 200) {
             let user = JSON.stringify(res.data)
             localStorage.setItem('user', user)
+            console.log(res.data)
             this.setUser(res.data)
             this.message = '邮箱绑定/解绑成功，跳转页面中...'
             this.$router.push({

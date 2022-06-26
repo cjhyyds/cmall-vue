@@ -12,7 +12,7 @@
     <div class="block">
       <el-carousel type="card" height="460px" weight="700px" autoplay="true">
         <el-carousel-item v-for="item in carousels" :key="item.id">
-          <router-link :to="{ path: '/goods/details', query: {productID:item.product_id} }">
+          <router-link :to="{ path: '/goods/newdetails', query: {productID:item.product_id} }">
             <img height="460px" :src="item.img_path" />
           </router-link>
         </el-carousel-item>
@@ -28,31 +28,12 @@
             <div class="title"><h1 style="font-size: 26px;font-weight: 500;line-height: 1.2;">探索优质项目</h1></div>
             <div class="more" id="more">
               <MyMenu :val="2" @fromChild="getChildMsg">
-                <span slot="1">热门</span>
-                <span slot="2">查看更多</span>
+                <!-- <span slot="1">热门</span>
+                <span slot="2">查看更多</span> -->
               </MyMenu>
             </div>
           </div>
           <div class="box-bd">
-            <!--热门-->
-            <!-- <div class="promo-list" >
-              <ul>
-                <router-link :to="{ path: '/goods/details', query: {productID:21} }">
-                  <li>
-                    <img
-                        :src="'http://hbimg.b0.upaiyun.com/dbb2a98e01f79df092398e18d633c25575f85dce1114d-peWuiv_fw658'"
-                    />
-                  </li>
-                </router-link>
-                <router-link :to="{ path: '/goods/details', query: {productID:22} }">
-                  <li>
-                    <img
-                        :src="'http://hbimg.b0.upaiyun.com/dbb2a98e01f79df092398e18d633c25575f85dce1114d-peWuiv_fw658'"
-                    />
-                  </li>
-                </router-link>
-              </ul>
-            </div> -->
             <div class="list">
               <MyList :list="product" :isMore="true"></MyList>
             </div>
@@ -97,7 +78,7 @@
           <h5 class="mb-3">开始众筹活动</h5><br/>
           <p class="fs-16 mb-4 text-secondary">众筹网帮助您为项目筹集创意、资源、种子用户、合作伙伴，只需几个简单步骤就可以建立专案，无需任何手续费。</p>
           <br/>
-          <el-button type="info" plain class="submit-btn" @click="submitProject">立即创建项目</el-button>
+          <el-button type="info" plain class="submit-btn" @click="findProject">立即创建项目</el-button>
         </div>
       </section>
     </div>
@@ -113,16 +94,6 @@ export default {
   data() {
     return {
       carousels: '', // 轮播图数据
-      // phonesList: '', // 手机商品列表
-      // televisionsList: '', // 小米电视商品列表
-      // applianceList: '', // 家电商品列表
-      // applianceHotList: '', //热门家电商品列表
-      // accessoryList: '', //配件商品列表
-      // accessoryHotList: '', //热门配件商品列表
-      // phoneShellsList: '', // 保护套商品列表
-      // chargersList: '', //充电器商品列表
-      // applianceActive: 1, // 家电当前选中的商品分类
-      // accessoryActive: 1, // 配件当前选中的商品分类
       product:"",
       start: 0,
       limit: 7
@@ -205,71 +176,6 @@ export default {
             this.notifyError('获取商品失败', err)
           })
       },
-      //获取热门家电的API
-  //     rankingAPI
-  //         .listElecRanking()
-  //         .then(res => {
-  //           if (res.status === 200) {
-  //             this.notifySucceed('获取热门家电成功')
-  //             this.applianceHotList = res.data
-  //             this.applianceList = res.data
-  //           } else {
-  //             this.notifyError('获取热门家电失败')
-  //           }
-  //         })
-  //         .catch(err => {
-  //           this.notifyError('获取热门家电失败', err)
-  //         })
-
-  //     //获取热门配件的API
-  //     rankingAPI
-  //         .listAcceRanking()
-  //         .then(res => {
-  //           if (res.status === 200) {
-  //             this.notifySucceed('获取热门配件成功')
-  //             this.accessoryHotList = res.data
-  //             this.accessoryList = res.data
-  //           } else {
-  //             this.notifyError('获取热门配件失败')
-  //           }
-  //         })
-  //         .catch(err => {
-  //           this.notifyError('获取热门配件失败', err)
-  //         })
-
-  //     //获取手机列表
-  //     this.getProduct(1, 'phonesList')
-  //     //获取电视列表
-  //     this.getProduct(2, 'televisionsList')
-  //     //获取保护套列表
-  //     this.getProduct(5, 'phoneShellsList')
-  //     //获取充电器列表
-  //     this.getProduct(7, 'chargersList')
-  //   },
-  //   // 获取家电模块子组件传过来的数据
-  //   getChildMsg(val) {
-  //     this.applianceActive = val
-  //   },
-  //   // 获取配件模块子组件传过来的数据
-  //   getChildMsg2(val) {
-  //     this.accessoryActive = val
-  //   },
-  //   // 获取各类商品数据方法封装
-  //   getProduct(categoryID, val) {
-  //     productsAPI
-  //         .listProducts(categoryID, this.start, this.limit)
-  //         .then(res => {
-  //           if (res.status === 200) {
-  //             this[val] = res.data.items
-  //           } else {
-  //             this.notifyError('获取失败', res.msg)
-  //           }
-  //         })
-  //         .catch(err => {
-  //           this.notifyError('获取失败', err)
-  //         })
-  //   }
-  // },
       beforeRouteEnter(to, from, next) {
     // 添加背景色
     document
@@ -284,6 +190,11 @@ export default {
         .setAttribute('style', 'background-color:#f5f5f5')
     next()
       },
+    findProject(){
+      this.$router.push({
+        path: '/publish', //注意使用 params 时一定不能使用 path
+        })
+      }
   },
 }
 

@@ -32,7 +32,7 @@
             <div class="order-step">
               <el-steps
                 :space="200"
-                :active="order.type==1?1:5"
+                :active="order.type==1?1:3"
                 finish-status="success"
                 align-center
               >
@@ -58,13 +58,13 @@
                   <router-link
                     class="info-href"
                     :to="{ path: '/goods/details', query: {productID:order.product_id} }"
-                  >{{order.name}}</router-link>
+                  >项目名称:{{order.name}}</router-link>
                 </span>
               </div>
               <div class="pro-price">
                 <span>
-                  {{order.discount_price}}元&nbsp;×
-                  {{order.num}}
+                  您将为该众筹项目投资
+                  {{order.num}}元
                 </span>
               </div>
             </div>

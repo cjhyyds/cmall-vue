@@ -10,6 +10,6 @@ import axios from 'axios'
 
 // 请求图片签名
 const UploadAvatar = fileName =>
-  axios.post('http://localhost:3000/api/v1/avatar', { filename: fileName }).then(res => res.data)
+  axios.post('http://10.1.162.174:3000/api/v1/avatar', { filename: fileName }).then(res => res.data)
 
 export { UploadAvatar }

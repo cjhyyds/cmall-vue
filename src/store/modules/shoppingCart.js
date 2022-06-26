@@ -106,7 +106,7 @@ export default {
         //此处temp为vuex中shoppingCart数组中的成员对象，包含后端返回的字段
         if (temp.id == productID) {
           if (temp.num < temp.max_Num) {
-            temp.num++
+            // temp.num++
           }
         }
       }

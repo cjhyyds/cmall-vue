@@ -38,7 +38,7 @@
               <div class="user-data">
                 <ul>
                   <li>普通</li>
-                  <li>12345678910</li>
+                  <li>2081356299</li>
                   <li v-if="this.$store.getters.getUser.email==''">
                     点此
                     <a href="javascript:;" @click="addVisible=true">绑定邮箱</a>
@@ -174,7 +174,8 @@ export default {
             'Cmall 将发送一封验证邮件到你的邮箱，此邮箱将作为您的绑定邮箱'
           this.deleteMessage =
             'Cmall 将发送一封验证邮件到你的邮箱，此操作会解除邮箱绑定'
-          this.totalTime = 30
+          //验证间隔时间
+          this.totalTime = 10
           this.cannotClick = false //这里重新开启
         }
       }, 1000)
