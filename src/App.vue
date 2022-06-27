@@ -132,9 +132,9 @@
               <router-link to="/about/us">关于我们</router-link>
             </p>
             <p>
-              服务热线：+65-86500000 联系邮箱：Kefu@zhongchou.com
+              服务热线：+65-1008611 联系邮箱：JieNongChou@163.com
             </p>
-            <a href="http://www.beian.miit.gov.cn/" target="_blank">Copyright ©2020, congz.top </a>
+            <a href="https://lwd3-byt.github.io/" target="_blank">Copyright ©2022, By银色子弹</a>
           </div>
         </div>
       </el-footer>

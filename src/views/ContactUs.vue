@@ -11,8 +11,8 @@
               <h1>联系我们</h1><br/>
             </div>
             <div class="user-message">
-              <p><strong>联系邮箱：Kefu@zhongchou.com<br/><br/>
-                服务热线：+65-86500000</strong></p>
+              <p><strong>联系邮箱：JieNongChou@163.com<br/><br/>
+                服务热线：+65-1008611</strong></p>
             </div>
           </div>
         </el-col>

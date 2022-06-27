@@ -30,22 +30,22 @@
             <p class="submenu">协议条款</p>
             <ul class="menu-ul">
               <li>
-                <router-link to="/about" class="menu-a">用户注册协议</router-link>
+                <router-link to="/about/Protocol?type=用户注册协议" class="menu-a">用户注册协议</router-link>
               </li>
               <li>
-                <router-link to="/about" class="menu-a">法律声明及隐私权政策</router-link>
+                <router-link to="/about/Protocol?type=法律声明及隐私权政策" class="menu-a">法律声明及隐私权政策</router-link>
               </li>
               <li>
-                <router-link to="/about" class="menu-a">发起者协议</router-link>
+                <router-link to="/about/Protocol?type=发起者协议" class="menu-a">发起者协议</router-link>
               </li>
               <li>
-                <router-link to="/about" class="menu-a">支持者协议</router-link>
+                <router-link to="/about/Protocol?type=支持者协议" class="menu-a">支持者协议</router-link>
               </li>
               <li>
-                <router-link to="/about" class="menu-a">项目发起上线流程</router-link>
+                <router-link to="/about/Protocol?type=项目发起上线流程" class="menu-a">项目发起上线流程</router-link>
               </li>
               <li>
-                <router-link to="/about" class="menu-a">众筹资质要求</router-link>
+                <router-link to="/about/Protocol?type=众筹资质要求" class="menu-a">众筹资质要求</router-link>
               </li>
             </ul>
           </div>
